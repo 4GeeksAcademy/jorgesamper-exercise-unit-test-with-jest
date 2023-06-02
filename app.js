@@ -10,9 +10,7 @@ console.log(sum(7,3))
 module.exports = { sum };
 
 
-
-
-// ejercicio 8
+//START EXERCISE:
 
 // one euro is:
  let oneEuroIs = {
@@ -21,32 +19,23 @@ module.exports = { sum };
      "GBP": 0.8, // british pound
  }
 
- function fromDollarToYen(dollarAmount) {
-    let yenAmount = dollarAmount * oneEuroIs["JPY"];
-    return yenAmount;
-  }
-  
-  function fromEuroToDollar(euroAmount) {
-    let dollarAmount = euroAmount * oneEuroIs["USD"];
-    return dollarAmount;
-  }
-  
-  function fromYenToPound(yenAmount) {
-    let poundAmount = yenAmount * oneEuroIs["GBP"];
-    return poundAmount;
-  }
-  
-  //imprimimos resultado
-  console.log(fromEuroToDollar(1)); // Convertir 1 euro a dólares
-  module.exports = { fromEuroToDollar };
-
 // declaramos una funcion con el mismo nombre "formEuroToDollar"
 const fromEuroToDollar = function(valueInEuro){
-    // convertimos el valor a dolares
     let valueInDollar = valueInEuro * 1.2;
-    // retornamos el valor
     return valueInDollar;
 }
 
+const fromDollarToYen = function(valueInDollar){
+    valueInDollar = oneEuroIs.USD;
+    let valueInYen = valueInDollar * 127.9;
+    return valueInYen;
+}
+
+const fromYentoPound = function(valueInYen){
+    valueInYen = oneEuroIs.JPY
+    let valueInPound = valueInYen * 0.8;
+    return valueInPound;
+}
+
 // tenemos que incluir la funcion en el exports para que sea exportada a otros archivos como test.js
-module.exports = { sum, fromEuroToDollar }
+module.exports = { sum, fromEuroToDollar, fromDollarToYen, fromYentoPound };
